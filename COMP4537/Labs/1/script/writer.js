@@ -63,23 +63,26 @@ function reloadData() {
     let list = JSON.parse(localStorage.getItem("listKey"))
 
     const ul = document.getElementById("todo")
-    list.forEach(element => {
-        const li = document.createElement("li")
-        const inputText = document.createElement("textarea")
-        inputText.textContent = element
-        li.className = "box"
 
-        //create REMOVE button
-        const removeBtn = document.createElement("button")
-        removeBtn.textContent = "REMOVE"
-        
-        //append the text box and remove button to the list
-        li.appendChild(inputText)
-        li.appendChild(removeBtn)
-        ul.appendChild(li)
+    if (list) {
+        list.forEach(element => {
+            const li = document.createElement("li")
+            const inputText = document.createElement("textarea")
+            inputText.textContent = element
+            li.className = "box"
 
-        giveRemoveBtnCmd()
-    });
+            //create REMOVE button
+            const removeBtn = document.createElement("button")
+            removeBtn.textContent = "REMOVE"
+            
+            //append the text box and remove button to the list
+            li.appendChild(inputText)
+            li.appendChild(removeBtn)
+            ul.appendChild(li)
+
+            giveRemoveBtnCmd()
+        });
+    }
 }
 
 reloadData()
