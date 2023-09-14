@@ -38,7 +38,7 @@
 }
 
 .display-text-button {
-    margin-right: 240px;
+    margin-right: 195px;
 }
 
 .data {
@@ -48,3 +48,8 @@
     margin: 5px;
     overflow: auto;
 }
+
+.fixedBtn {
+    text-align: right;
+}
+
