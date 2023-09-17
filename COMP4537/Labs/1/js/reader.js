@@ -1,3 +1,5 @@
+const update = "updated at: "
+
 function loadData() {
     let list = JSON.parse(localStorage.getItem("listKey"))
     const ul = document.getElementById("todo")
@@ -18,7 +20,7 @@ function loadData() {
 
 function updateTime() {
     let time = new Date().toLocaleTimeString()
-    document.getElementById("p1").innerHTML = "updated at: " + time
+    document.getElementById("p1").innerHTML = update + time
 }
 
 loadData()
