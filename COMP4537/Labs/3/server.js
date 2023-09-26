@@ -8,8 +8,9 @@ const port = 3000
 
 http.createServer((req, res) => {
     let q = url.parse(req.url, true)
+    console.log(q.pathname)
     res.writeHead(200, {'Content-Type': 'text', 'Access-Control-Allow-Origin': '*'})
-    if (q.pathname == "COMP4537/Labs/3/getDate") {
+    if (q.pathname == "/COMP4537/Labs/3/getDate/") {
         res.write(`<p style="color: blue;">Hello ${q.query["name"]}. What a beautiful day. Server current date and time is ${dt.date()}</p>`)
     } else {
         res.write("404")
