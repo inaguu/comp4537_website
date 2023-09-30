@@ -41,10 +41,6 @@ http.createServer((req, res) => {
         return res.end()
     }  
 
-    res.writeHead(404, {'Content-Type': 'text/html', 'Access-Control-Allow-Origin': '*'})
-    res.write(`404`)
-    res.end()
-
 }).listen(port)
 
 console.log("Server is running and listening on port: " + port)
