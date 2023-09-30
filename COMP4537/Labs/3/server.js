@@ -12,6 +12,7 @@ http.createServer((req, res) => {
     if (q.pathname == "/COMP4537/Labs/3/writeFile/") {
         fs.appendFile(__dirname + "/file.txt", q.query["text"], (err) => {
             if (err) {
+                console.log(err)
                 res.writeHead(404, {'Content-Type': 'text/html', 'Access-Control-Allow-Origin': '*'})
                 return res.end()
             } 
@@ -25,6 +26,7 @@ http.createServer((req, res) => {
     if (q.pathname == "/COMP4537/Labs/3/readFile/") {
         fs.readFile(__dirname + "/file.txt", "utf8", (err, data) => {
             if (err) {
+                console.log(err)
                 res.writeHead(404, {'Content-Type': 'text/html', 'Access-Control-Allow-Origin': '*'})
                 return res.end()
             } 
