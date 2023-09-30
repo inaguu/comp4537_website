@@ -9,10 +9,8 @@ const port = 3000
 http.createServer((req, res) => {
     const q = url.parse(req.url, true)
 
-    console.log(__dirname)
-
     if (q.pathname == "/COMP4537/Labs/3/writeFile/") {
-        fs.appendFile("/var/task/file.txt", q.query["text"], (err) => {
+        fs.appendFile("file.txt", q.query["text"], (err) => {
             if (err) {
                 console.log(err)
                 res.writeHead(404, {'Content-Type': 'text/html', 'Access-Control-Allow-Origin': '*'})
