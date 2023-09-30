@@ -8,9 +8,9 @@ const port = 3000
 
 http.createServer((req, res) => {
     const q = url.parse(req.url, true)
-    
+
     if (q.pathname == "/COMP4537/Labs/3/writeFile/") {
-        fs.appendFile("file.txt", q.query["text"], (err) => {
+        fs.appendFile(__dirname + "/file.txt", q.query["text"], (err) => {
             if (err) {
                 res.writeHead(404, {'Content-Type': 'text/html', 'Access-Control-Allow-Origin': '*'})
                 return res.end()
@@ -23,7 +23,7 @@ http.createServer((req, res) => {
     } 
 
     if (q.pathname == "/COMP4537/Labs/3/readFile/") {
-        fs.readFile("file.txt", "utf8", (err, data) => {
+        fs.readFile(__dirname + "/file.txt", "utf8", (err, data) => {
             if (err) {
                 res.writeHead(404, {'Content-Type': 'text/html', 'Access-Control-Allow-Origin': '*'})
                 return res.end()
